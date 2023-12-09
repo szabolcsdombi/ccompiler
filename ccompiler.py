@@ -124,6 +124,9 @@ class Compiler:
         for path in self.library_dirs:
             linker_args.append(f'/LIBPATH:{path}')
 
+        for lib in self.libraries:
+            linker_args.append(f'{lib}.lib')
+
         for name, value in self.macros:
             linker_args.append(f'-D{name}' if value is None else f'-D{name}={value}')
 
