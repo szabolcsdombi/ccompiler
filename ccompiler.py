@@ -102,7 +102,7 @@ class Compiler:
             objects.append(obj)
 
             if src.endswith('.rc'):
-                if subprocess.call([self.rc, f'/fo{obj}', src]):
+                if subprocess.call([self.rc, '/nologo', f'/fo{obj}', src]):
                     return self.error()
                 continue
 
