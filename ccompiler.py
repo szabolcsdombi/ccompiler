@@ -127,9 +127,6 @@ class Compiler:
         for lib in self.libraries:
             linker_args.append(f'{lib}.lib')
 
-        for name, value in self.macros:
-            linker_args.append(f'-D{name}' if value is None else f'-D{name}={value}')
-
         linker_args.extend(objects)
 
         for symbol in self.exports:
